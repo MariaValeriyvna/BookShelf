@@ -1,0 +1,25 @@
+.wrapper {
+  width: inherit;
+  height: 98px;
+  padding: 19px;
+  background-color: var(--grey);
+  border: 1px solid var(--black);
+  font-size: 18px;
+  line-height: 21px;
+}
+.title {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--blue);
+  font-size: 36px;
+  line-height: 42px;
+}
+
+.infoamount {
+  color: var(--lightblue)
+}
+.inforead {
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--green)
+}

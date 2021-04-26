@@ -1,0 +1,23 @@
+.btn {
+  margin: 5px;
+  padding: 5px 32px;
+  font-size: 24px;
+  line-height: 28px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.btn:focus,
+.btn:hover {
+  outline: none;
+  background-color: var(--white);
+  box-shadow: 0 0 8px 2px var(--blue);
+  color: var(--blue);
+}
+.btnattention:focus,
+.btnattention:hover {
+  background-color: var(--white);
+  box-shadow: 0 0 8px 2px var(--red);
+  color: var(--red);
+}

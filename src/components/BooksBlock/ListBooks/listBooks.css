@@ -1,0 +1,19 @@
+.wrapper {
+  width: inherit;
+  flex-grow: 1;
+  border-right: 1px solid var(--black);
+  border-left: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  overflow-y: auto;
+  background: linear-gradient(
+    0deg,
+    rgba(41, 72, 255, .5) 0%,
+    rgba(116, 116, 255, .5) 36%,
+    rgba(200, 236, 255, 0.5) 100%
+  );
+}
+.info {
+  padding: 20px;
+  color: var(--grey);
+  font-style: italic;
+}

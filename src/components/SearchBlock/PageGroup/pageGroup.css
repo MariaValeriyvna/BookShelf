@@ -1,0 +1,20 @@
+.wrapper {
+  width: inherit;
+  min-height: 57px;
+  padding: 10px;
+  background-color: var(--grey);
+  border: 1px solid var(--black);
+  
+}
+.pages {
+  display: flex;
+  font-size: 12px;
+  line-height: 14px;
+}
+.pages span {
+  padding-right: 20px;
+}
+.btns button {
+  padding: 3px 20px 3px 0;
+  color: var(--lightblue);
+}

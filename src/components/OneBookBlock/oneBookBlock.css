@@ -1,0 +1,39 @@
+.block {
+  flex-grow: 1;
+  padding: 30px 35px;
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  overflow-y: auto;
+}
+.info {
+  color: var(--grey);
+  font-style: italic;
+}
+.infored {
+  margin-top: 20px;
+  color: var(--red);
+  font-style: italic;
+}
+.book {
+  margin-bottom: 20px;
+}
+.title {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: normal;
+}
+.subtitle {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--darkgrey);
+}
+
+@media all and (max-width: 1200px) {
+  .block {
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    overflow: hidden;
+  }
+}

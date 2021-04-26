@@ -1,0 +1,14 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 382px;
+  height: inherit;
+}
+@media all and (max-width: 1200px) {
+  .block {
+    width: 100%;
+    height: auto;
+  }
+}
