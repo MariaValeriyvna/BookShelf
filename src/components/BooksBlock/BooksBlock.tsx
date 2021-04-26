@@ -12,9 +12,9 @@ export function BooksBlock({
   onMarkBook,
 }: IPropsBooksBlock): JSX.Element {
   return (
-    <div className={styles.block}>
+    <section className={styles.block}>
       <AboutBooks />
       <ListBooks onDelBook={onDelBook} onMarkBook={onMarkBook} />
-    </div>
+    </section>
   );
 }

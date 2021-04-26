@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { ReadListContext } from "../../../Layout";
+import { DataReadListContext } from "../../../context/dataReadListContext";
 import styles from "./aboutBooks.css";
 
 export function AboutBooks(): JSX.Element {
-  const readList = useContext(ReadListContext);
+  const readList = useContext(DataReadListContext);
   const amountIsRead = readList.filter((el) => el.isRead).length;
   const amountBooks = readList.length;
 

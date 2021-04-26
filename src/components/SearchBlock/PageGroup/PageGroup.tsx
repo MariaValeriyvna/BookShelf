@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
-import { DataPagesContext } from "../../../Layout";
+import { DataPagesContext } from "../../../context/dataPagesContext";
 import styles from "./pageGroup.css";
 
 interface IPropPageGroup {
   onSearch: (search: string, page: number) => {};
 }
 
-export function PageGroup({
-  onSearch,
-}: IPropPageGroup): JSX.Element {
-  const dataPages = useContext(DataPagesContext)
+export function PageGroup({ onSearch }: IPropPageGroup): JSX.Element {
+  const dataPages = useContext(DataPagesContext);
   /* //Function for pagination
   function handleClick(num: number) {
     if (num <= 0 || num > dataPages.numFound / 100 + 1) return;

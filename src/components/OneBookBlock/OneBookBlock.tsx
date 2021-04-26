@@ -1,6 +1,6 @@
 import React from "react";
-import { IPropBook } from "../../Layout";
-import { Button } from "../elements";
+import { IPropBook } from "../../containers";
+import { Button } from "../../elements";
 import styles from "./oneBookBlock.css";
 
 interface IPropsBooks {
@@ -22,7 +22,7 @@ export function OneBookBlock({
   }
   const fultext = book?.has_fultext ? "yes" : "no";
   return (
-    <div className={styles.block}>
+    <section className={styles.block}>
       {!book ? (
         <p className={styles.info}>Information about the selected book... </p>
       ) : (
@@ -53,6 +53,6 @@ export function OneBookBlock({
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 }

@@ -1,7 +1,12 @@
 import * as React from "react";
-import { BookShelf } from "./Layout";
+import { AppLayout } from "./components/AppLayout/AppLayout";
+import { BookShelfContainer } from "./containers";
 import "./main.global.css";
 
 export function App() {
-  return <BookShelf />;
+  return (
+    <AppLayout>
+      <BookShelfContainer />
+    </AppLayout>
+  );
 }

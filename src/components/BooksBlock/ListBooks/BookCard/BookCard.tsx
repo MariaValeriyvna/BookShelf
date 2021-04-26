@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { IPropBook } from "../../../../Layout";
-import { Button } from "../../../elements";
+import { IPropBook } from "../../../../containers";
+import { Button } from "../../../../elements";
 import styles from "./bookCard.css";
 
 interface IPropBookCard {
   book: IPropBook;
   onDelBook: (bookId: string) => void;
   onMarkBook: (bookId: string) => void;
+  index: number;
 }
 
 export function BookCard({
   book,
   onDelBook,
   onMarkBook,
+  index,
 }: IPropBookCard): JSX.Element {
   const [isRead, setIsRead] = useState(book.isRead);
   const [isDel, setIsDel] = useState(false);
@@ -30,7 +32,7 @@ export function BookCard({
   return (
     <li className={styles.item} key={book.key}>
       <h3 className={isRead ? styles.isread : styles.title}>
-        {book.title}({langs})
+        {index + 1}. {book.title}({langs})
       </h3>
       <p className={styles.subtitle}>{book.subtitle}</p>
       <h3 className={isRead ? styles.isread : styles.title}>

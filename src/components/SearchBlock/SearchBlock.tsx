@@ -1,10 +1,11 @@
 import React, { MouseEvent } from "react";
 import { FoundBooksList, InputGroup, PageGroup } from ".";
-import { IPropBook} from "../../Layout";
+import { IPropBook } from "../../containers";
+
 import styles from "./searchBlock.css";
 
 interface IPropsSearchBlock {
-  onSearch: (search: string, page?: number) => {};
+  onSearch: (search: string, page: number) => {};
   isLoading: boolean;
   chosenBook: IPropBook | null;
   onChoice: (ev: MouseEvent<HTMLElement>) => void;
@@ -25,7 +26,7 @@ export function SearchBlock({
   isAllLoaded,
 }: IPropsSearchBlock): JSX.Element {
   return (
-    <div className={styles.block}>
+    <section className={styles.block}>
       <InputGroup onSearch={onSearch} isLoading={isLoading} />
       <FoundBooksList
         onChoice={onChoice}
@@ -37,6 +38,6 @@ export function SearchBlock({
         isAllLoaded={isAllLoaded}
       />
       <PageGroup onSearch={onSearch} />
-    </div>
+    </section>
   );
 }

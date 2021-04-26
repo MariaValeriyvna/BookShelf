@@ -1,13 +1,14 @@
 import React, { MouseEvent, useContext, useEffect, useRef } from "react";
-import { DataBooksContext, IPropBook } from "../../../Layout";
-import { Errorimg } from "../../elements";
+import { IPropBook } from "../../../containers";
+import { DataBooksContext } from "../../../context/dataBooksContext";
+import { Errorimg } from "../../../elements";
 import styles from "./foundBooksList.css";
 
 interface IPropsFoundBooks {
   chosenBook: IPropBook | null;
   onChoice: (ev: MouseEvent<HTMLElement>) => void;
   isError: string;
-  addLoad: (search: string, page?: number) => {};
+  addLoad: (search: string, page: number) => {};
   valueForSearch: string;
   pageForSearch: number;
   isAllLoaded: boolean;
@@ -67,7 +68,7 @@ export function FoundBooksList({
                   styles.item + `${isChoice ? " " + styles.itemchoice : ""}`
                 }
                 id={el.key}
-                key={el.key + index}
+                key={el.key! + index}
                 onClick={onChoice}
               >
                 <p className={styles.text}>

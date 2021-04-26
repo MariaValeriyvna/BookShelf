@@ -1,0 +1,5 @@
+.error {
+  width: 100%;
+  height: 100%;
+  background: center/ 200px 200px url('../../img/error.jpg') no-repeat;
+}

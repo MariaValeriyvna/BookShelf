@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BookCard } from "..";
-import { ReadListContext } from "../../../Layout";
+import { DataReadListContext } from "../../../context/dataReadListContext";
 import styles from "./listBooks.css";
 
 interface IPropListBooks {
@@ -12,17 +12,20 @@ export function ListBooks({
   onDelBook,
   onMarkBook,
 }: IPropListBooks): JSX.Element {
-  const readList = useContext(ReadListContext);
+  const readList = useContext(DataReadListContext);
   return (
     <ul className={styles.wrapper}>
       {readList.length > 0 ? (
-        readList.map((el) => (
-          <BookCard
-            key={el.key}
-            book={el}
-            onDelBook={onDelBook}
-            onMarkBook={onMarkBook}
-          />
+        readList.map((el, index) => (
+          <>
+            <BookCard
+              index={index}
+              key={el.key + index}
+              book={el}
+              onDelBook={onDelBook}
+              onMarkBook={onMarkBook}
+            />
+          </>
         ))
       ) : (
         <p className={styles.info}>Information about books to read... </p>

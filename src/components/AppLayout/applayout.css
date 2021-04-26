@@ -1,4 +1,4 @@
-.wrapper {
+.appContainer {
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
@@ -7,7 +7,7 @@
 }
 
 @media all and (max-width: 1200px) {
-  .wrapper {
+  .appContainer {
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;

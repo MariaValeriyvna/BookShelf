@@ -1,12 +1,11 @@
 import * as React from "react";
-import styles from "./bookShelf.css";
 
 import { useCallback, useState } from "react";
-import { OpenLibraryService } from "../services";
-import { SearchBlock } from "../components/SearchBlock";
-import { OneBookBlock } from "../components/OneBookBlock";
-import { BooksBlock } from "../components/BooksBlock";
-import { ReadListService } from "../services/ReadListService";
+import { BookShelf } from "../components/BookShelf";
+import { DataBooksContext } from "../context/dataBooksContext";
+import { DataPagesContext } from "../context/dataPagesContext";
+import { DataReadListContext } from "../context/dataReadListContext";
+import { OpenLibraryService, ReadListService } from "../services";
 
 export interface IPropBook {
   title: string;
@@ -25,16 +24,8 @@ export interface IPropPages {
   page: number;
   search: string;
 }
-export const DataBooksContext = React.createContext<Array<IPropBook>>([]);
-export const ReadListContext = React.createContext<Array<IPropBook>>([]);
-export const DataPagesContext = React.createContext<IPropPages>({
-  numFound: 0,
-  start: 0,
-  page: 1,
-  search: "",
-});
 
-export function BookShelf() {
+export function BookShelfContainer() {
   const [dataBooks, setDataBooks] = useState<Array<IPropBook> | null>(null);
   const [dataPages, setDataPages] = useState<IPropPages>({
     numFound: 0,
@@ -109,29 +100,25 @@ export function BookShelf() {
     [dataBooks, chosenBook, readList]
   );
   return (
-    <DataBooksContext.Provider value={dataBooks!}>
-      <DataPagesContext.Provider value={dataPages}>
-        <ReadListContext.Provider value={readList}>
-          <div className={styles.wrapper}>
-            <SearchBlock
-              onChoice={handleChoice}
-              onSearch={handleSearch}
-              valueForSearch={valueForSearch}
-              pageForSearch={pageForSearch}
-              chosenBook={chosenBook}
-              isLoading={isLoading}
-              isError={isError}
-              isAllLoaded={isAllLoaded}
-            />
-            <OneBookBlock
-              book={chosenBook}
-              onAddBook={handleAddNewBook}
-              isAdd={isAdd}
-            />
-            <BooksBlock onDelBook={handleDelBook} onMarkBook={handleMarkBook} />
-          </div>
-        </ReadListContext.Provider>
-      </DataPagesContext.Provider>
-    </DataBooksContext.Provider>
+    <DataPagesContext.Provider value={dataPages}>
+      <DataBooksContext.Provider value={dataBooks!}>
+        <DataReadListContext.Provider value={readList}>
+          <BookShelf
+            handleChoice={handleChoice}
+            handleSearch={handleSearch}
+            valueForSearch={valueForSearch}
+            pageForSearch={pageForSearch}
+            chosenBook={chosenBook}
+            isLoading={isLoading}
+            isError={isError}
+            isAllLoaded={isAllLoaded}
+            handleAddNewBook={handleAddNewBook}
+            isAdd={isAdd}
+            handleDelBook={handleDelBook}
+            handleMarkBook={handleMarkBook}
+          />
+        </DataReadListContext.Provider>
+      </DataBooksContext.Provider>
+    </DataPagesContext.Provider>
   );
 }

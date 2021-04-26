@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
-import { Button, PreLoader } from "../../elements";
+import { Button, PreLoader } from "../../../elements";
 
 import styles from "./inputGroup.css";
 
 interface IPropsInputGroup {
-  onSearch: (search: string, page?: number) => {};
+  onSearch: (search: string, page: number) => {};
   isLoading: boolean;
 }
 
@@ -15,13 +15,22 @@ export function InputGroup({
   const [valueInput, setValueInput] = useState("");
   const [isEmpty, setIsEmpty] = useState(false);
 
+  let debounceTimeoutId: ReturnType<typeof setTimeout>;
+
   function changeHandler(ev: ChangeEvent<HTMLInputElement>) {
     const value = ev.target.value;
-    setValueInput(value);
+    clearTimeout(debounceTimeoutId);
+    debounceTimeoutId = setTimeout(() => {
+      if (value && value.trim().length > 3) onSearch(value, 1);
+      setValueInput(value);
+    }, 900);
   }
 
   function handleClick(ev) {
-    if (!valueInput && (ev.key === "Enter" || ev.type === "click"))
+    if (
+      (!valueInput || valueInput.trim().length < 1) &&
+      (ev.key === "Enter" || ev.type === "click")
+    )
       setIsEmpty(true);
     else if (ev.key === "Enter" || ev.type === "click") {
       onSearch(valueInput, 1);

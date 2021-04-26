@@ -16,10 +16,10 @@
 }
 
 .infoamount {
-  color: var(--lightblue)
+  color: var(--lightblue);
 }
 .inforead {
   display: inline-block;
   margin-left: 10px;
-  color: var(--green)
+  color: var(--green);
 }
